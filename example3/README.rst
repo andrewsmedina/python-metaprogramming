@@ -3,7 +3,7 @@ attribute validator
 
 eg:
 
-    class Product:
+    class Person:
         name = String()
         age = Integer()
 
@@ -16,7 +16,7 @@ Descriptors
 
 Result:
 
-    class Product:
+    class Person:
         name = String('name')
         age = Integer('age')
 
