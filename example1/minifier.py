@@ -1,5 +1,7 @@
 from lxml import html
 
+from functools import wraps
+
 
 def html_minify(html_code):
     dom = html.fromstring(html_code)
@@ -7,6 +9,7 @@ def html_minify(html_code):
 
 
 def minify(func):
+    @wraps(func)
     def wrapper(*args, **kwargs):
         html_code = func(*args, **kwargs)
         return html_minify(html_code)
