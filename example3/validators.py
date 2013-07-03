@@ -34,3 +34,31 @@ try:
     person.age = "ble"
 except TypeError:
     pass
+
+
+class OldPerson:
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if not isinstance(value, str):
+            raise TypeError('Expected str')
+        self._name = value
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, value):
+        if not isinstance(value, int):
+            raise TypeError('Expected int')
+        self._age = value
+
+p = OldPerson()
+try:
+    p.name = 10
+except TypeError:
+    pass
